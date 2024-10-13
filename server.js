@@ -47,5 +47,5 @@ cors_proxy.createServer({
 });
 
 module.exports = (req, res) => {
-  server.emit('request', req, res);
+  cors_proxy.emit('request', req, res);
 };
