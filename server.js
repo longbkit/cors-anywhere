@@ -20,7 +20,7 @@ function parseEnvList(env) {
 var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELIMIT);
 
 var cors_proxy = require('./lib/cors-anywhere');
-cors_proxy.createServer({
+const server = cors_proxy.createServer({
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
   requireHeader: ['origin', 'x-requested-with'],
@@ -47,5 +47,5 @@ cors_proxy.createServer({
 });
 
 module.exports = (req, res) => {
-  cors_proxy.emit('request', req, res);
+  server.emit('request', req, res);
 };
