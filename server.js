@@ -53,6 +53,7 @@ const server = cors_proxy.createServer({
 const publishMode = process.env.PUBLISH_MODE || 'serverless';
 if (publishMode === 'serverless') {
   module.exports = (req, res) => {
+    console.log('serverless request', req);
     server.emit('request', req, res);
   };
 } else {
