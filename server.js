@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || '0.0.0.0';
